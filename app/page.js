@@ -5,11 +5,14 @@ import { useState } from "react";
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#6C402E', // Brown color for the "Send" button
+      main: '#8B4513', // Darker brown color for the "Send" button and user input
     },
     secondary: {
-      main: '#FFA07A', // Light orange color for the chatbot replies
+      main: '#FF8C00', // Darker orange color for the chatbot replies
     },
+  },
+  typography: {
+    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif", // More modern and readable font
   },
 });
 
@@ -77,14 +80,18 @@ export default function Home() {
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
+        bgcolor="#F5F5F5" /* Light gray background */
       >
         <Stack
           direction="column"
           width="600px"
           height="700px"
-          border="1px solid black"
+          border="1px solid #E0E0E0" /* Light border */
           p={2}
           spacing={2}
+          borderRadius={8} /* Slightly rounded corners */
+          boxShadow="0 4px 12px rgba(0, 0, 0, 0.1)" /* Subtle shadow for depth */
+          bgcolor="white" /* White background for the chat container */
         >
           <Stack
             direction="column"
@@ -104,8 +111,10 @@ export default function Home() {
                 <Box
                   bgcolor={msg.role === 'assistant' ? 'secondary.main' : 'primary.main'}
                   color="white"
-                  p={3}
+                  p={2} /* Slightly reduced padding */
                   borderRadius={16}
+                  maxWidth="70%" /* Limit message bubble width */
+                  boxShadow="0 2px 6px rgba(0, 0, 0, 0.1)" /* Subtle shadow for message bubbles */
                 >
                   {msg.content}
                 </Box>
@@ -114,12 +123,20 @@ export default function Home() {
           </Stack>
           <Stack direction="row" spacing={2}>
             <TextField
-              label="Message"
+              label="Type a message..."
               fullWidth
               value={message}
               onChange={(e) => setMessage(e.target.value)}
+              variant="outlined"
+              sx={{ backgroundColor: 'white' }} /* White background for input */
             />
-            <Button variant="contained" onClick={sendMessage}>Send</Button>
+            <Button
+              variant="contained"
+              onClick={sendMessage}
+              sx={{ minWidth: '100px', fontWeight: 'bold' }} /* Consistent button size and bold text */
+            >
+              Send
+            </Button>
           </Stack>
         </Stack>
       </Box>

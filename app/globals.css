@@ -11,10 +11,9 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: url('https://i.pinimg.com/564x/6d/81/e7/6d81e7df501707a352c5467633f994fb.jpg') no-repeat center center fixed;
+  color: #333; /* Soft dark gray for text color */
+  background: url('https://st4.depositphotos.com/10325516/41085/i/380/depositphotos_410858532-stock-photo-automation-customer-service-concept-rendering.jpg') no-repeat center center fixed;
   background-size: cover;
-  background-blend-mode: overlay;
-  background-color: rgba(255, 255, 255, 0.8); /* Optional, for a slight white overlay */
+  background-blend-mode: lighten; /* Blend mode to keep the background light */
+  background-color: rgba(255, 255, 255, 0.9); /* Very light overlay to soften the image */
 }
-
